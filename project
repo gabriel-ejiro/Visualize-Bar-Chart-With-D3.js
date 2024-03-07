@@ -123,3 +123,55 @@ svg.selectAll("rect")
   .attr("fill", "navy")
   .attr("transform", "translate(" + padding + "," + padding + ")");
 
+// user story 8
+
+// Append a rect element for each data point
+svg.selectAll("rect")
+  .data(dataset)
+  .enter()
+  .append("rect")
+  .attr("class", "bar")
+  .attr("data-date", (d, i) => dataset[i][0])
+  .attr("data-gdp", d => d[1]) // Set data-gdp attribute directly from the data
+  .attr("x", d => xScale(parseTime(d[0])))
+  .attr("y", d => yScale(d[1]))
+  .attr("width", barWidth)
+  .attr("height", d => height - yScale(d[1]))
+  .attr("fill", "navy")
+  .attr("transform", "translate(" + padding + "," + padding + ")");
+
+// User story 9
+
+// Append a rect element for each data point
+svg.selectAll("rect")
+  .data(dataset)
+  .enter()
+  .append("rect")
+  .attr("class", "bar")
+  .attr("data-date", (d, i) => dataset[i][0])
+  .attr("data-gdp", d => d[1])
+  .attr("x", d => xScale(parseTime(d[0])))
+  .attr("y", d => yScale(d[1]))
+  .attr("width", barWidth)
+  .attr("height", d => height - yScale(d[1])) // Set the height of the bar based on GDP
+  .attr("fill", "navy")
+  .attr("transform", "translate(" + padding + "," + padding + ")");
+
+// user story 10
+
+// Append a rect element for each data point
+svg.selectAll("rect")
+  .data(dataset)
+  .enter()
+  .append("rect")
+  .attr("class", "bar")
+  .attr("data-date", (d, i) => dataset[i][0])
+  .attr("data-gdp", d => d[1])
+  .attr("x", d => xScale(parseTime(d[0]))) // Set the x-coordinate of the bar based on the date
+  .attr("y", d => yScale(d[1]))
+  .attr("width", barWidth)
+  .attr("height", d => height - yScale(d[1]))
+  .attr("fill", "navy")
+  .attr("transform", "translate(" + padding + "," + padding + ")");
+
+
