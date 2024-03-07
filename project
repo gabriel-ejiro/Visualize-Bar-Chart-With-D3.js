@@ -1,4 +1,4 @@
-# User Story #1: Chart Title
+// User Story #1: Chart Title
 
 <div id="container">
   <h1 id="title">Gross Domestic Product (GDP) in the United States</h1>
@@ -23,3 +23,53 @@ const svg = d3.select("#chart")
 // Set the chart title
 d3.select("#title")
   .text("Gross Domestic Product (GDP) in the United States");
+
+//  User Story #2
+
+// Generate x-scale (for time)
+const xScale = d3.scaleTime()
+  .domain([d3.min(data, d => new Date(d[0])), d3.max(data, d => new Date(d[0]))])
+  .range([0, width]);
+
+// Generate x-axis
+const xAxis = d3.axisBottom(xScale);
+
+// Append x-axis to the SVG container
+svg.append("g")
+  .attr("id", "x-axis")
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis);
+
+// user story #3
+
+// Generate y-scale (for GDP)
+const yScale = d3.scaleLinear()
+  .domain([0, d3.max(data, d => d[1])])
+  .range([height, 0]);
+
+// Generate y-axis
+const yAxis = d3.axisLeft(yScale);
+
+// Append y-axis to the SVG container
+svg.append("g")
+  .attr("id", "y-axis")
+  .call(yAxis);
+
+// user story #4
+
+// Append x-axis to the SVG container
+svg.append("g")
+  .attr("id", "x-axis")
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis);
+
+// Append y-axis to the SVG container
+svg.append("g")
+  .attr("id", "y-axis")
+  .call(yAxis);
+
+// Add class "tick" to all tick labels on both axes
+d3.selectAll("#x-axis .tick, #y-axis .tick")
+  .classed("tick", true);
+
+
