@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => console.error('Error fetching data:', error));
 
-    // Function to create scatter plot
-    function createScatterPlot(data) {
+    // Function to bar char
+    function barChart(data) {
         // Add your D3.js code here to create the scatter plot
     }
 });
